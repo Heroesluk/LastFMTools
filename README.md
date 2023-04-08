@@ -2,6 +2,7 @@
 
 This is repo of pythons scripts, i created over the past year or so that utilize
 lastfm scrobbling feature, and public lastfm api to create visualizations of user listening history.
+you can try using them at: [LastFMTools.app](https://sea-lion-app-rlgof.ondigitalocean.app)
 
 ### Tools:
 
@@ -25,30 +26,34 @@ discover new music, and connect with other music enthusiasts.
 The scrobbling feature of Last.fm tracks the music you listen to on various platforms and records it on your profile.
 This data is used to analyze your music taste and listening history.
 
-## Can i test those scripts without having LastFM account, or even without running them by myself?
+## Can i test those scripts without having LastFM account? 
 
-Yeah, all of the scripts i've created are available at [LastFMTools.app](https://sea-lion-app-rlgof.ondigitalocean.app)
-to freely use by anyone.
-There's also *random* feature for every tool, that lets you use script without providing your
-LastFM nickname.
+Sure, there's *random* feature for every tool, that lets you use script without providing your
+LastFM nickname, providing you with image created from profile of random lastfm user
 
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ```bash
-pip install LastFMTools
+pip install lastfmtools
 ```
 
-## Direct usage
+## Example usage:
 
 ```python
 import LastFMTools
 
+# creates bubble chart consisting of 50 most listened to albums, for user MyNickname, and 
+# saves it as bubble.png
 bubble_chart = BubbleChart("album", 50, "bubble.png", "MyNickname")
 
-gif_mosaic = GifMosaic("10-11-2022", "month", 5, "File.gif", "MyNickName")
+# creates gif of mosaic pictures, thay displays 25 favorite albums for each month,
+# from november 2022, onwards, and saves it as File.gif  
+gif_mosaic = GifMosaic("01-11-2022", "month", 5, "File.gif", "MyNickName")
 
+# create mosaic that displays 16 album covers that 
+# have biggest percentage of yellow, or similar colors in it, according to [CIE94](https://en.wikipedia.org/wiki/Color_difference#CIE94)
 color_mosaic = ColorMosaic(COLOR.YELLOW, 4, "Yellow.png")
 
 ```
